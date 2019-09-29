@@ -1,0 +1,7 @@
+{
+  "name": "TablaDidacticaDeIdiomas",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

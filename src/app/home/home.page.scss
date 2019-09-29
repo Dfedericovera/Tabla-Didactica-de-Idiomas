@@ -1,0 +1,76 @@
+/* 
+html, body
+{
+    height: 100%;
+} */
+/* .ion-content{
+    height: 100%;
+}
+.divBotones {
+    display: flex;
+  flex-flow: column;
+  height: 100%;
+} */
+/* .divBotones ion-button {
+    flex-grow:1;
+    height: max-content;
+} */
+html,
+body {
+  height: 100%;
+  margin: 0
+}
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.box .row {
+  border: 1px dotted grey;
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+  /* The above is shorthand for:
+  flex-grow: 0,
+  flex-shrink: 1,
+  flex-basis: auto
+  */
+}
+
+.box .row.content {
+  flex: 1 1 auto;
+}
+
+.box ion-button{
+    display: flex;
+  flex-flow: column;
+  height: 20%;
+  border: none;
+  
+}
+
+.box .row.footer {
+  flex: 0 1 40px;
+}
+
+.botonimagen {
+    
+  background-repeat:no-repeat;
+  height:50px;
+  width:50px;
+  background-position:center;
+}
+.colores{
+    background-image:url(../../assets/imagenes/colores.jpg);
+    height:50px;
+    width:50px;
+}
+.numeros{
+    background-image:url(../../assets/imagenes/numeros.jpg);
+}
+.animales{
+    background-image:url(../../assets/imagenes/animales.png);
+}
