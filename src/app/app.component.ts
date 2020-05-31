@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  splash = true;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -21,7 +22,13 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      /* this.splashScreen.show(); */
+      /* timer(3000).subscribe(()=>this.splash = false); */
+
+      /* this.splashScreen.hide(); */
+      setTimeout(() => {
+        this.splash = false;
+      }, 4000)
     });
   }
 }

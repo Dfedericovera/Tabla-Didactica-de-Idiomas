@@ -16,8 +16,9 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  cargarUsuario(){
-    this.usuario.nombre="admin";
+  cambiarUsuario(usuario){
+    
+    this.usuario.nombre=usuario;
     this.usuario.clave = "clave";
   }
 

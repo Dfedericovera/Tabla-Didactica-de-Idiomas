@@ -1,76 +1,70 @@
-/* 
-html, body
-{
-    height: 100%;
-} */
-/* .ion-content{
-    height: 100%;
-}
-.divBotones {
-    display: flex;
-  flex-flow: column;
+ion-content{
   height: 100%;
-} */
-/* .divBotones ion-button {
-    flex-grow:1;
-    height: max-content;
-} */
-html,
-body {
+  
+}
+ion-content ion-button{
+  --background: url(../../assets/imagenes/leon.png);
+  --border-radius: 0;
+  --background-activated: rgba(13, 0, 133, 0.918);
+  --background-hover-opacity:0.5;
+  --padding-bottom: 0;
+  --padding-end:0;
+  --padding-top:0;
+  --padding-start:0;
+  --background-size: 100% 100%;
+}
+
+
+@media screen and (min-width: 300px) {
+.box{
   height: 100%;
-  margin: 0
-}
+  background: url(../../assets/imagenes/fondo.jpg); 
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 
-.box {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
 }
-
-.box .row {
-  border: 1px dotted grey;
-}
-
-.box .row.header {
-  flex: 0 1 auto;
-  /* The above is shorthand for:
-  flex-grow: 0,
-  flex-shrink: 1,
-  flex-basis: auto
-  */
-}
-
-.box .row.content {
-  flex: 1 1 auto;
-}
-
-.box ion-button{
-    display: flex;
-  flex-flow: column;
-  height: 20%;
-  border: none;
   
 }
 
-.box .row.footer {
-  flex: 0 1 40px;
+@media screen and (min-width: 600px) {
+  .box{
+    height: 100%;
+    background: url(../../assets/imagenes/paisaje.png);
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  
+  }
+  
+}
+.container{
+  height: 100%;
+}
+.row{
+  height: 49%;  
+}
+.col{
+  padding: 0;
+}
+ion-button{
+  height: 100%;
+}
+.grande{
+  height: 100%;
+  width: 100%;
+  
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.img:active{
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+}
+.img:hover{
+  -webkit-box-shadow: 0px 0px 66px -11px rgba(0,0,0,0.67);
+  -moz-box-shadow: 0px 0px 66px -11px rgba(0,0,0,0.67);
+  box-shadow: 0px 0px 66px -11px rgba(0,0,0,0.67);
 }
 
-.botonimagen {
-    
-  background-repeat:no-repeat;
-  height:50px;
-  width:50px;
-  background-position:center;
-}
-.colores{
-    background-image:url(../../assets/imagenes/colores.jpg);
-    height:50px;
-    width:50px;
-}
-.numeros{
-    background-image:url(../../assets/imagenes/numeros.jpg);
-}
-.animales{
-    background-image:url(../../assets/imagenes/animales.png);
-}

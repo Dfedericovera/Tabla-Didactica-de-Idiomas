@@ -1,48 +1,119 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title><b>Tabla Didatica De Idiomas</b> <ion-icon name="log-out" class="ion-float-right" [routerLink]="['/login']" style="cursor:pointer"></ion-icon>
-      <!-- <ion-button size="small" float-right (click)="go('/login')">LOGIN</ion-button> -->
-      <!-- <ion-button [routerLink]="['/login']">ROUTERLINK</ion-button> -->
+<!-- <ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      <ion-icon name="log-out" class="ion-float-right" [routerLink]="['/login']" style="cursor:pointer"></ion-icon>
       <div style="text-align: center">
-        <img src="../../assets/imagenes/animales.png" style="max-width: 50px; cursor:pointer" alt="Photo of 3 cats" >
-      <img src="../../assets/imagenes/colores.jpg" style="max-width:50px; cursor:pointer" alt="Photo of 3 cats" >
-      <img src="../../assets/imagenes/numeros.jpg" style="max-width:50px; cursor:pointer" alt="Photo of 3 cats" >
+        <img src="../../assets/imagenes/animales.png" style="max-width: 50px; cursor:pointer" alt="animales">
+        <img src="../../assets/imagenes/colores.jpg" style="max-width:50px; cursor:pointer" alt="colores">
+        <img src="../../assets/imagenes/numeros.jpg" style="max-width:50px; cursor:pointer" alt="numeros">
       </div>
-      
-      <!-- <ion-button size="small" color="dark" class="ion-float-right" [routerLink]="['/login']">DESCONECTARSE</ion-button> -->
-      
-      <!-- (click)="onlogout()" -->
+
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-  <!-- <div class="divBotones">
-    <ion-button expand="full">Full Button</ion-button>
-    <ion-button expand="full">Full Button</ion-button>
-    <ion-button expand="full">Full Button</ion-button>
-    <ion-button expand="full">Full Button</ion-button>
-    <ion-button expand="full">Full Button</ion-button>
-  </div> -->
-  <div class="box">
-    <!-- <div class="row header">
-        <p><b>header</b>
-          <br />
-          <br />(sized to content)</p>
-      </div> -->
-    <div class="row content">
-
-      <ion-button *ngFor="let boton of botones;" expand="full">
-        {{boton.nombre}}
-      </ion-button>
-      <!-- <ion-button expand="full">Full Button</ion-button>
-      <ion-button expand="full">Full Button</ion-button>
-      <ion-button expand="full">Full Button</ion-button>
-      <ion-button expand="full">Full Button</ion-button> -->
+  <!-- BOTON IDIOMA -->
+  <ion-fab vertical="top" horizontal="start" slot="fixed">
+    <ion-fab-button style="--background: rgba(0, 0, 0, 0);">
+      <img src="../../assets/imagenes/idioma.png" style="max-width: 50px; cursor:pointer;" alt="animales">
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button style="--background: rgba(0, 0, 0, 0);" (click)="cambiarIdioma('argentina')">
+        <img src="../../assets/imagenes/argentina.png" style="max-width: 50px; cursor:pointer;" alt="argentina">
+      </ion-fab-button>
+      <ion-fab-button style="--background: rgba(0, 0, 0, 0);" (click)="cambiarIdioma('brasil')">
+        <img src="../../assets/imagenes/brasil.png" style="max-width: 50px; cursor:pointer;" alt="brasil">
+      </ion-fab-button>
+      <ion-fab-button style="--background: rgba(0, 0, 0, 0);" (click)="cambiarIdioma('eeuu')">
+        <img src="../../assets/imagenes/eeuu.png" style="max-width: 50px; cursor:pointer;" alt="eeuu">
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <!-- BOTON TEMA -->
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button style="--background: rgba(0, 0, 0, 0);">
+      <img src="../../assets/imagenes/tema.png" style="max-width: 50px; cursor:pointer;" alt="animales">
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button (click)="cambiarTema('animales')" style="--background: rgba(0, 0, 0, 0);">
+        <img src="../../assets/imagenes/animales.png" style="max-width: 50px; cursor:pointer;" alt="animales">
+      </ion-fab-button>
+      <ion-fab-button (click)="cambiarTema('numeros')" style="--background: rgba(0, 0, 0, 0);">
+        <img src="../../assets/imagenes/numeros.jpg" style="max-width: 50px; cursor:pointer;" alt="animales">
+      </ion-fab-button>
+      <ion-fab-button (click)="cambiarTema('colores')" style="--background: rgba(0, 0, 0, 0);">
+        <img src="../../assets/imagenes/colores.jpg" style="max-width: 50px; cursor:pointer;" alt="animales">
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <!-- BOTON LOGOUT -->
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button style="--background: rgba(0, 0, 0, 0);" routerLink="/login">
+      <img src="../../assets/imagenes/logout.png" style="max-width: 50px; cursor:pointer;" alt="animales">
+    </ion-fab-button>
+  </ion-fab>
+  <!-- TABLA O LIENZO ANIMALES -->
+  <div class="box" *ngIf="mostrarAnimales">
+    <div class="container">
+      <div class="row">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/leon.png);" (click)="reproducirSonido('leon',true)">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/caballo.png);" (click)="reproducirSonido('caballo',true)">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/monkey.png);" (click)="reproducirSonido('monkey',true)">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/dog.png);" (click)="reproducirSonido('dog',true)">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/vaca.png);" (click)="reproducirSonido('vaca',true)">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/elefante.png);" (click)="reproducirSonido('elefante',true)">
+        </div>
+      </div>
     </div>
-    <!-- <div class="row footer">
-      <p><b>footer</b> (fixed height)</p>
-    </div> -->
   </div>
-
+  <!-- TABLA O LIENZO NUMEROS -->
+  <div class="box" *ngIf="mostrarNumeros">
+    <div class="container">
+      <div class="row">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/1.png); background-size: auto 90%;" (click)="reproducirSonido('1')">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/2.png);" (click)="reproducirSonido('2')">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/3.png);" (click)="reproducirSonido('3')">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/4.png);" (click)="reproducirSonido('4')">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/5.png);" (click)="reproducirSonido('5')">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/6.png);" (click)="reproducirSonido('6')">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- TABLA O LIENZO COLORES -->
+  <div class="box" *ngIf="mostrarColores">
+    <div class="container">
+      <div class="row">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/azul.png);" (click)="reproducirSonido('azul')">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/negro.png);" (click)="reproducirSonido('negro')">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/rojo.png);" (click)="reproducirSonido('rojo')">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/verde.png);" (click)="reproducirSonido('verde')">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/rosa.png);" (click)="reproducirSonido('rosa')">
+        </div>
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/amarillo.png);" (click)="reproducirSonido('amarillo')">
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>
