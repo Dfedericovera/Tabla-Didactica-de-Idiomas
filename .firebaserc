@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tabla-didactica-2eeb3": {
+      "hosting": {
+        "app": [
+          "tabla-didactica-2eeb3"
+        ]
+      }
+    }
+  }
+}

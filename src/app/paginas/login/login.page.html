@@ -11,43 +11,86 @@
     <div class="enviarAlFrente row">
       <div class="form-check form-check-inline col">
         <label class="radio" for="inlineRadio1">
-          <input (click)="cambiarUsuario('admin@admin.com')" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <input (click)="cambiarUsuario('admin@admin.com',111111)" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+            value="option1">
           <span>Admin</span>
         </label>
       </div>
       <div class="form-check form-check-inline col">
         <label class="radio" for="inlineRadio2">
-          <input (click)="cambiarUsuario('invitado@invitado.com')" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          <input (click)="cambiarUsuario('invitado@invitado.com',222222)" type="radio" name="inlineRadioOptions"
+            id="inlineRadio2" value="option2">
           <span>Invitado</span>
         </label>
       </div>
       <div class="form-check form-check-inline col">
         <label class="radio" for="inlineRadio3">
-          <input (click)="cambiarUsuario('usuario@usuario.com')" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-        <span>Usuario</span>
-      </label>
+          <input (click)="cambiarUsuario('usuario@usuario.com',333333)" type="radio" name="inlineRadioOptions"
+            id="inlineRadio3" value="option3">
+          <span>Usuario</span>
+        </label>
       </div>
       <div class="form-check form-check-inline col">
         <label class="radio" for="inlineRadio4">
-          <input (click)="cambiarUsuario('anonimo@anonimo.com')" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option3">
+          <input (click)="cambiarUsuario('anonimo@anonimo.com',444444)" type="radio" name="inlineRadioOptions"
+            id="inlineRadio4" value="option3">
           <span>Anonimo</span>
         </label>
       </div>
       <div class="form-check form-check-inline col">
         <label class="radio" for="inlineRadio5">
-          <input (click)="cambiarUsuario('tester@tester.com')" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option3">
-        <span>Tester</span>
-      </label>
+          <input (click)="cambiarUsuario('tester@tester.com',555555)" type="radio" name="inlineRadioOptions" id="inlineRadio5"
+            value="option3">
+          <span>Tester</span>
+        </label>
       </div>
     </div>
 
 
     <div class="container">
-      <form class="form">
+      <form class="form" [formGroup]="ionicForm" (ngSubmit)="onLogin(email,password)" novalidate>
         <h1>Bienvenido</h1>
-        <input type="text" placeholder="Nombre usuario" [(ngModel)]='usuario.nombre' name="nombre">
-        <input type="password" placeholder="Contraseña" [(ngModel)]='usuario.clave' name="clave">
-        <button type="submit" id="login-button" [routerLink]="['/home']">Entrar</button>
+        <input formControlName="email" type="email" placeholder="Nombre usuario" #email name="nombre">
+        <input formControlName="password" type="password" placeholder="Contraseña" #password name="clave">
+        <button type="submit" id="login-button">Entrar</button><!-- (click)="onLogin(email,password)" -->
+        <!--         <span class="divider line one-line"> o </span>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="danger" (click)="onLoginGoggle(email,password)" expand="block">
+Login with Goggle
+            </ion-button>
+          </ion-col>
+        </ion-row> -->
+        <!-- VALIDACIONS -->
+        <!-- Error messages -->
+        <span class="error ion-padding ion-text-nowrap" *ngIf="isSubmitted && errorControl.email.errors?.required">
+          <ion-row>
+            <ion-text color="danger">
+              *Ingrese su email.
+            </ion-text>
+          </ion-row>
+        </span>
+        <span class="error ion-padding ion-text-nowrap" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+          <ion-row>
+            <ion-text color="danger">
+              *Direccion de correo invalida
+            </ion-text>
+          </ion-row>
+        </span>
+        <span class="error ion-padding " *ngIf="isSubmitted && errorControl.password.errors?.required">
+          <ion-row>
+            <ion-text color="danger">
+              *Ingrese su contraseña.
+            </ion-text>
+          </ion-row>
+        </span>
+        <span class="error ion-padding ion-text-nowrap" *ngIf="wrongEmail">
+          <ion-row>
+            <ion-text color="danger">
+              *Usuario o contraseña invalido.
+            </ion-text>
+          </ion-row>
+        </span>
       </form>
 
     </div>
