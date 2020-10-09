@@ -1,22 +1,8 @@
-<!-- <ion-header>
-  <ion-toolbar color="dark">
-    <ion-title>
-      <ion-icon name="log-out" class="ion-float-right" [routerLink]="['/login']" style="cursor:pointer"></ion-icon>
-      <div style="text-align: center">
-        <img src="../../assets/imagenes/animales.png" style="max-width: 50px; cursor:pointer" alt="animales">
-        <img src="../../assets/imagenes/colores.jpg" style="max-width:50px; cursor:pointer" alt="colores">
-        <img src="../../assets/imagenes/numeros.jpg" style="max-width:50px; cursor:pointer" alt="numeros">
-      </div>
-
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
   <!-- BOTON IDIOMA -->
   <ion-fab vertical="top" horizontal="start" slot="fixed">
     <ion-fab-button style="--background: rgba(0, 0, 0, 0);">
-      <img src="../../assets/imagenes/idioma.png" style="max-width: 50px; cursor:pointer;" alt="animales">
+      <img src="../../assets/imagenes/idioma.png" #banderaIdioma style="max-width: 50px; cursor:pointer;" alt="animales">
     </ion-fab-button>
     <ion-fab-list side="end">
       <ion-fab-button style="--background: rgba(0, 0, 0, 0);" (click)="cambiarIdioma('argentina')">
@@ -33,7 +19,7 @@
   <!-- BOTON TEMA -->
   <ion-fab vertical="bottom" horizontal="start" slot="fixed">
     <ion-fab-button style="--background: rgba(0, 0, 0, 0);">
-      <img src="../../assets/imagenes/tema.png" style="max-width: 50px; cursor:pointer;" alt="animales">
+      <img src="../../assets/imagenes/tema.png" #banderaTema style="max-width: 50px; cursor:pointer;" alt="animales">
     </ion-fab-button>
     <ion-fab-list side="end">
       <ion-fab-button (click)="cambiarTema('animales')" style="--background: rgba(0, 0, 0, 0);">
@@ -57,19 +43,19 @@
   <div class="box" *ngIf="mostrarAnimales">
     <div class="container">
       <div class="row">
-        <div class="col img grande" style="background-image: url(../../assets/imagenes/leon.png);" (click)="reproducirSonido('leon',true)">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/leon.png);" (click)="reproducirSonido('leon')">
         </div>
-        <div class="col img grande" style="background-image: url(../../assets/imagenes/caballo.png);" (click)="reproducirSonido('caballo',true)">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/caballo.png);" (click)="reproducirSonido('caballo')">
         </div>
-        <div class="col img grande" style="background-image: url(../../assets/imagenes/monkey.png);" (click)="reproducirSonido('monkey',true)">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/monkey.png);" (click)="reproducirSonido('mono')">
         </div>
       </div>
       <div class="row">
-        <div class="col img grande" style="background-image: url(../../assets/imagenes/dog.png);" (click)="reproducirSonido('dog',true)">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/dog.png);" (click)="reproducirSonido('perro')">
         </div>
-        <div class="col img grande" style="background-image: url(../../assets/imagenes/vaca.png);" (click)="reproducirSonido('vaca',true)">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/vaca.png);" (click)="reproducirSonido('vaca')">
         </div>
-        <div class="col img grande" style="background-image: url(../../assets/imagenes/elefante.png);" (click)="reproducirSonido('elefante',true)">
+        <div class="col img grande" style="background-image: url(../../assets/imagenes/elefante.png);" (click)="reproducirSonido('elefante')">
         </div>
       </div>
     </div>

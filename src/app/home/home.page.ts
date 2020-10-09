@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AuthService } from '../servicios/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -13,13 +12,17 @@ export class HomePage {
   mostrarNumeros: any = false;
   mostrarColores: any = false;
   pais = "argentina";
-
+  @ViewChild('banderaIdioma',{static:true}) banderaIdioma: ElementRef;
+  @ViewChild('banderaTema',{static:true}) banderaTema: ElementRef;
   audio: HTMLAudioElement;
 
-  constructor() {
+  constructor(private authSvc: AuthService) {
   }
 
   logout() {
+     this.authSvc.logout().then( value =>{
+       /* tratar error de desconeccion */
+     })
   }
 
   cambiarTema(tema) {
@@ -28,30 +31,26 @@ export class HomePage {
       this.mostrarAnimales = true;
       this.mostrarColores = false;
       this.mostrarNumeros = false;
+      this.banderaTema.nativeElement.src = '../../assets/imagenes/animales.png';
     }
     else if (tema == "numeros") {
       this.mostrarNumeros = true;
       this.mostrarAnimales = false;
       this.mostrarColores = false;
+      this.banderaTema.nativeElement.src = '../../assets/imagenes/numeros.jpg';
     }
     else if (tema == "colores") {
       this.mostrarColores = true;
       this.mostrarAnimales = false;
       this.mostrarNumeros = false;
+      this.banderaTema.nativeElement.src = '../../assets/imagenes/colores.jpg';
     }
 
   }
 
-  reproducirSonido(sonido,universal?) {
+  reproducirSonido(sonido) {
     this.audio = new Audio();
-    if(universal){
-      let src = "./../assets/sonidos/" + sonido + ".mp3";
-      console.log(src);
-      this.audio.src = src;
-      this.audio.load();
-      this.audio.play();      
-    }
-    else if (this.pais == 'argentina') {
+    if (this.pais == 'argentina') {
       let src = "./../assets/sonidos/argentina/" + sonido + ".mp3";
       console.log(src);
       this.audio.src = src;
@@ -76,12 +75,7 @@ export class HomePage {
       var playPromise = this.audio.play();
       if (playPromise !== undefined) {
         playPromise.then(_ => {
-          // Automatic playback started!
-          // Show playing UI.
-          // We can now safely pause video...
-          /* setTimeout(() => {
-              this.audio.pause();
-            }, 3000); */
+          
         })
       }
     }
@@ -93,12 +87,7 @@ export class HomePage {
       var playPromise = this.audio.play();
       if (playPromise !== undefined) {
         playPromise.then(_ => {
-          // Automatic playback started!
-          // Show playing UI.
-          // We can now safely pause video...
-          /* setTimeout(() => {
-              this.audio.pause();
-            }, 3000); */
+
         })
       }
     }
@@ -106,7 +95,8 @@ export class HomePage {
   }
 
   cambiarIdioma(pais) {
-    console.log(pais);
+    console.log(this.banderaIdioma);
+    this.banderaIdioma.nativeElement.src = '../../assets/imagenes/'+pais+'.png';
     this.pais = pais;
   }
 
