@@ -53,10 +53,9 @@ export class LoginPage {
         console.log('Ingresar los datos correspondientes!')
         return false;
       } else {
-        /* console.log(this.ionicForm.value); */
         const user = await this.authSvc.login(email.value, password.value);
         if (user.code != 'auth/user-not-found') {
-          //Verificar email
+          //Enviar email de verificacion
           /* const isVerified = this.authSvc.isEmailVerified(user);
           this.redirectUser(isVerified); */
           this.router.navigate(['/home']);
