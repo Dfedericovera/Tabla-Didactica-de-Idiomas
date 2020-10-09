@@ -3,7 +3,7 @@ Tabla didáctica para niños
 Imagenes de freepik.com
 Sonidos grabados personalmente.
 
-![Image of tablaDidactica](https://firebasestorage.googleapis.com/v0/b/relevamientovisual1.appspot.com/o/pictures%2F1rk76yylth9?alt=media&token=977ae78e-f18d-4199-a7f1-27679c2b91ee)
+![Image of tablaDidactica](https://firebasestorage.googleapis.com/v0/b/relevamientovisual1.appspot.com/o/Tabla%20Didactica%20de%20Idiomas.jpg?alt=media&token=60febb8f-57f8-4732-a3f2-7aec20a02be6)
 
 ## Comenzando 🚀
 
