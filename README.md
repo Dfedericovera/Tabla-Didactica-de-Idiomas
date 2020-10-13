@@ -33,9 +33,7 @@ cordova
 
 ### Instalación 🔧
 
-Tomar la apk desde .\platforms\android\app\build\outputs\apk\debug
-
-Para generar otra apk desde la consola: ionic cordova build [platform].
+Para generar apk desde la consola: ionic cordova build [platform].
 
 Ver: (https://ionicframework.com/docs/cli/commands/cordova-build).
 
